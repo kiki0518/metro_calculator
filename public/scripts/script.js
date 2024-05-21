@@ -2,23 +2,20 @@ document.addEventListener("DOMContentLoaded", function() {
     const startStationSelect = document.getElementById("start-station");
     const endStationSelect = document.getElementById("end-station");
 
-    // Fetch data from the API
-    fetch('/api/fares') // 修改这里的请求路径为代理路由
+    fetch('/api/fares')
         .then(response => response.json())
         .then(data => {
             const fares = data.result.results;
-            console.log(fares); // 检查数据是否正确获取
+            console.log(fares);
             const stations = new Set();
             fares.forEach(fare => {
-                stations.add(fare['起點']);
-                stations.add(fare['迄點']);
+                stations.add(fare['起站']);
+                stations.add(fare['訖站']);
             });
 
-            // Clear existing options (if any)
             startStationSelect.innerHTML = '<option value="">請選擇</option>';
             endStationSelect.innerHTML = '<option value="">請選擇</option>';
 
-            // Populate select elements with station options
             stations.forEach(station => {
                 const option1 = document.createElement("option");
                 option1.value = station;
@@ -40,16 +37,19 @@ document.addEventListener("DOMContentLoaded", function() {
         const endStation = endStationSelect.value;
 
         if (startStation && endStation) {
-            const fareInfo = fares.find(fare => fare['起點'] === startStation && fare['迄點'] === endStation);
-
+            const fareInfo = fares.find(fare => {
+                console.log(`Checking fare: 起站=${fare['起站']}, 訖站=${fare['訖站']}`);
+                return fare['起站'] === startStation && fare['訖站'] === endStation;
+            });
+            
             if (fareInfo) {
-                const dailyFare = parseInt(fareInfo['價格'], 10);
-                const tripsPerDay = 2; // 上下班各一次
-                const workDaysPerMonth = 22; // 每月22個工作日
+                const dailyFare = parseInt(fareInfo['全票票價'], 10);
+                const tripsPerDay = 2;
+                const workDaysPerMonth = 22;
                 const totalTrips = tripsPerDay * workDaysPerMonth;
 
                 const monthlyFare = dailyFare * totalTrips;
-                const monthlyPass = 1200; // 月票價格
+                const monthlyPass = 1200;
 
                 let loyaltyDiscountRate;
                 if (totalTrips > 50) {
