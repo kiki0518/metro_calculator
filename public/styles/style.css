@@ -1,0 +1,141 @@
+/* styles/style.css */
+
+@import url('https://fonts.googleapis.com/earlyaccess/cwtexfangsong.css');
+
+body {
+    font-family: 'cwTeXFangSong', serif;
+    background-color: #fafafa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: right;
+    margin: 0;
+    margin-right: 80px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+}
+
+.controls label,
+.controls select,
+.controls button {
+    margin: 0 10px;
+}
+
+.content {
+    display: flex;
+    align-items: flex-start;
+}
+
+#metro-map {
+    text-align: left; 
+    margin-right: 20px;
+}
+
+#metro-map img {
+    max-width: 55%;
+    height: auto;
+}
+
+#result {
+    
+    text-align: center; /* Align text to the left for a more consistent look */
+    width: calc(35% - 20px); /* Make result wider */
+    min-height: 550px; /* Set a minimum height */
+    margin-top: 20px;
+    padding: 10px;
+    background: linear-gradient(to left, #7f7f7f, #e0e0e0); 
+    border: none; /* Remove border */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    position: absolute;
+    right: 0; /* Align to the right */
+    color: #ffffff; /* Set text color to white */
+    border-top-left-radius: 20px; /* Add rounded corner to the top-left */
+    border-bottom-left-radius: 20px; /* Add rounded corner to the bottom-left */
+}
+
+
+#result:hover {
+    background: linear-gradient(to left, #555454, #bdbcbc); /* 鼠标悬停时改变背景颜色 */
+}
+
+select {
+    padding: 5px; 
+    font-size: 16px; 
+    border: 1px solid #e9eded; /* Add a border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    background-color: #e9eded; /* Set background color */
+    width: 150px; /* Adjust width as needed */
+    margin-right: 10px; /* Add margin for spacing */
+    font-family: 'cwTeXFangSong', serif; /* Set font family */
+}
+
+
+option {
+    font-family: 'cwTeXFangSong', serif; /* Set font family for options */
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(30, 43, 66, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px; /* Max width */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+/* Calculate button styles */
+#calculate-btn {
+    padding: 7px 15px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #b2c4cd; /* Bootstrap Primary Blue */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    font-family: 'cwTeXFangSong', serif; /* Set font family */
+}
+
+#calculate-btn:hover {
+    background-color: #8095ab; /* Darker blue on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
+}
+
+#calculate-btn:active {
+    background-color: #3d5775; /* Even darker blue on active/click */
+}
