@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#metro-map {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#metro-map img {
+    max-width: 100%;
+    height: auto;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.controls label,
+.controls select,
+.controls button {
+    margin: 0 10px;
+}
+
+#result {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}

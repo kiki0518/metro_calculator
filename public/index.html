@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台北捷運票價計算器</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>台北捷運票價計算器</h1>
+        <div id="metro-map">
+            <img src="images/metro-map.jpg" alt="台北捷運路線圖">
+        </div>
+        <div class="controls">
+            <label for="start-station">起點站：</label>
+            <select id="start-station">
+                <option value="">請選擇</option>
+            </select>
+            <label for="end-station">終點站：</label>
+            <select id="end-station">
+                <option value="">請選擇</option>
+            </select>
+            <button id="calculate-btn">計算</button>
+        </div>
+        <div id="result">
+            <!-- 顯示計算結果 -->
+        </div>
+    </div>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
